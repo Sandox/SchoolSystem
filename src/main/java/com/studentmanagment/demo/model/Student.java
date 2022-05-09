@@ -1,12 +1,18 @@
 package com.studentmanagment.demo.model;
 
-import org.hibernate.annotations.Table;
+import org.springframework.data.annotation.Id;
 
-import javax.persistence.Entity;
+import javax.persistence.*;
+import java.io.Serializable;
 
 @Entity
 @Table(name="student")
-public class Student {
+public class Student implements Serializable {
+
+    @javax.persistence.Id
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(nullable = false, updatable = false)
     private long id;
     private String name;
     private String surname;
