@@ -17,16 +17,18 @@ public class Student implements Serializable {
     private String name;
     private String surname;
     private int studentNumber;
+    private String grade;
 
     public Student() {
 
     }
 
-    public Student(long id, String name, String surname, int studentNumber) {
+    public Student(long id, String name, String surname, int studentNumber, String grade) {
         this.id = id;
         this.name = name;
         this.surname = surname;
         this.studentNumber = studentNumber;
+        this.grade = grade;
     }
 
     public long getId() {
@@ -59,5 +61,13 @@ public class Student implements Serializable {
 
     public void setStudentNumber(int studentNumber) {
         this.studentNumber = studentNumber;
+    }
+
+    public String getGrade() {
+        return grade;
+    }
+
+    public void setGrade(String grade) {
+        this.grade = grade;
     }
 }
