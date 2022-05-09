@@ -23,8 +23,7 @@ public class Student implements Serializable {
 
     }
 
-    public Student(long id, String name, String surname, int studentNumber, String grade) {
-        this.id = id;
+    public Student(String name, String surname, int studentNumber, String grade) {
         this.name = name;
         this.surname = surname;
         this.studentNumber = studentNumber;
