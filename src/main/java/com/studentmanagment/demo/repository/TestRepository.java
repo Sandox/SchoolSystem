@@ -1,19 +1,16 @@
 package com.studentmanagment.demo.repository;
 
 import com.studentmanagment.demo.model.Student;
+import com.studentmanagment.demo.model.TestCreation;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 import java.util.Optional;
 
 @Repository
-public interface StudentRepository extends JpaRepository<Student, Long> {
+public interface TestRepository extends JpaRepository<TestCreation, Long> {
 
-    Optional<Student> findStudentById(Long id);
+    Optional<TestCreation> findTestById(Long id);
 
-    Optional<Student> findStudentByStudentNumber(int studentNumber);
-
-    Boolean existsByStudentNumber(int studentNumber);
-
-
+    Optional<TestCreation> findTestByTestCode(int testCode);
 }

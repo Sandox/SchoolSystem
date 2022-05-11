@@ -40,5 +40,13 @@ public class StudentService {
                 new UserNotFoundException("Student with Student Number: " + studentNumber+ " was not Found"));
     }
 
+    public void deleteStudentByStudentNumber(int studentNumber){
+        boolean studentExist = studentRepository.existsByStudentNumber(studentNumber);
+        if(!studentExist){
+            throw new UserNotFoundException("Student with Student Number: " + studentNumber+ " was not Found");
+        }
+
+    }
+
 
 }

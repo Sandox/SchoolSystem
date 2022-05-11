@@ -4,6 +4,8 @@ import org.springframework.data.annotation.Id;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
+import java.time.Period;
 
 @Entity
 @Table(name="student")
@@ -17,17 +19,26 @@ public class Student implements Serializable {
     private String name;
     private String surname;
     private int studentNumber;
-    private String grade;
+    @Column(name = "date_of_birth")
+    private LocalDate dob;
+    @Transient
+    private int age;
+    private String gender;
+    @Column(name = "ethnicity")
+    private String race;
 
     public Student() {
 
     }
 
-    public Student(String name, String surname, int studentNumber, String grade) {
+    public Student(String name, String surname, int studentNumber, LocalDate dateOfBirth,
+                   String gender, String ethnicity) {
         this.name = name;
         this.surname = surname;
         this.studentNumber = studentNumber;
-        this.grade = grade;
+        this.dob = dateOfBirth;
+        this.gender = gender;
+        this.race = ethnicity;
     }
 
     public long getId() {
@@ -62,11 +73,50 @@ public class Student implements Serializable {
         this.studentNumber = studentNumber;
     }
 
-    public String getGrade() {
-        return grade;
+    public LocalDate getDob() {
+        return dob;
     }
 
-    public void setGrade(String grade) {
-        this.grade = grade;
+    public void setDob(LocalDate dob) {
+        this.dob = dob;
+    }
+
+    //Calculate Student age using the date of birth
+    public int getAge() {
+        return Period.between(dob,LocalDate.now()).getYears();
+    }
+
+    public void setAge(int age) {
+        this.age = age;
+    }
+
+    public String getGender() {
+        return gender;
+    }
+
+    public void setGender(String gender) {
+        this.gender = gender;
+    }
+
+    public String getRace() {
+        return race;
+    }
+
+    public void setRace(String race) {
+        this.race = race;
+    }
+
+    @Override
+    public String toString() {
+        return "Student: {" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", surname='" + surname + '\'' +
+                ", studentNumber='" + studentNumber + '\'' +
+                ", Gender='" + gender + '\'' +
+                ", dateOfBirth=" + dob +
+                ", age=" + age +
+                ", Ethnicity=" + race +
+                '}';
     }
 }
