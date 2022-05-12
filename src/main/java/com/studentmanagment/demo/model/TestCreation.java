@@ -11,12 +11,10 @@ public class TestCreation {
     @Column(nullable = false, updatable = false)
     private long id;
     private int testCode;
-    private String schoolName;
+    private final String schoolName = "PPE Private School";
     private String teacherName;
     private int studentNumber;
     private String subject;
-    private int testTotal;
-    private int studentMark;
     private String question;
     private String answer;
     @Transient
@@ -31,7 +29,6 @@ public class TestCreation {
         this.teacherName = teacherName;
         this.studentNumber = studentNumber;
         this.subject = subject;
-        this.testTotal = testTotal;
         this.question = question;
         this.answer = answer;
     }
@@ -52,8 +49,11 @@ public class TestCreation {
         this.testCode = testCode;
     }
 
+//    public void setSchoolName(){
+//        this.schoolName = "PPE Private Schoool";
+//    }
+
     public String getSchoolName() {
-        schoolName = "School A";
         return schoolName;
     }
 
@@ -79,25 +79,6 @@ public class TestCreation {
 
     public void setSubject(String subject) {
         this.subject = subject;
-    }
-
-    public int getTestTotal() {
-        return testTotal;
-    }
-
-    public void setTestTotal(int testTotal) {
-        this.testTotal = testTotal;
-    }
-
-    public int getStudentMark() {
-        if(isCorrect = true){
-            studentMark = studentMark + 1;
-        }
-        return studentMark;
-    }
-
-    public void setStudentMark(int studentMark) {
-        this.studentMark = studentMark;
     }
 
     public String getQuestion() {

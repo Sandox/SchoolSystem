@@ -45,8 +45,5 @@ public class StudentService {
         if(!studentExist){
             throw new UserNotFoundException("Student with Student Number: " + studentNumber+ " was not Found");
         }
-
     }
-
-
 }
